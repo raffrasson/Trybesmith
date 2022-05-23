@@ -1,7 +1,7 @@
 interface Product {
-  id: number;
+  id?: number;
   name: string;
-  amout: number;
+  amount: string;
   orderId?: number;
 }
 
