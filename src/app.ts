@@ -3,6 +3,7 @@ import { StatusCodes } from 'http-status-codes'; // bilbioteca no course, sessã
 import userRouter from '../routes/userRouter';
 import productRouter from '../routes/productRouter';
 import orderRouter from '../routes/orderRouter';
+import loginRouter from '../routes/loginRouter';
 
 const app = express();
 
@@ -14,5 +15,6 @@ app.use(express.json());
 app.use(productRouter);
 app.use(userRouter);
 app.use(orderRouter);
+app.use(loginRouter);
 
 export default app;
