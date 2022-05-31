@@ -30,6 +30,11 @@ class OrderService {
 
     return productsAndOrders;
   }
+
+  public async create(productsId: number[], userId: number): Promise<Order> {
+    const result = await this.orderModel.create(userId, productsId);
+    return result as Order;
+  }
 }
 
 export default OrderService;

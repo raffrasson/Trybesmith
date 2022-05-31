@@ -6,8 +6,7 @@ class LoginController {
   constructor(private loginService = new LoginService()) { }
 
   public login = async (req: Request, res: Response) => {
-    const { username, password } = req.body;
-    
+    const { username, password } = req.body;    
     const login = await this.loginService.login(username, password); 
     if (login === undefined) {
       return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Username or password invalid' });

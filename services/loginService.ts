@@ -11,6 +11,7 @@ class LoginService {
 
   public async login(username: string, password: string): Promise<string> {
     const login = await this.model.login(username, password);
+
     if (login === undefined) {
       return login;
     }
@@ -19,8 +20,10 @@ class LoginService {
     };
     
     const SECRET = 'senha'; 
-    
-    const token = sign({ id: login.username, password: login.password }, SECRET, jwtConfig);
+    const token = sign({
+      id: login.id,
+      username: login.username,
+      password: login.password }, SECRET, jwtConfig);
 
     return token;
   }
