@@ -16,7 +16,6 @@ class OrderController {
     const { productsIds } = req.body;
     const token = req.headers.authorization;
     const decoded:string | JwtPayload | Order = await verify(token as string, 'senha');
-    console.log(decoded);
     const { id } = decoded as JwtPayload;
     const neworder = await this.orderService.create(productsIds, id);
     return res.status(StatusCodes.CREATED).json(neworder);

@@ -25,7 +25,6 @@ export default class OrderModel {
       [userId],
     );
 
-    console.log(result);
     const [dataInserted] = result;
     const { insertId } = dataInserted as { insertId: number };
 
